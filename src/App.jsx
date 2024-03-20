@@ -66,7 +66,7 @@ function App() {
                 </h1>
                 <button
                     onClick={() => setCount((count) => count + 1)}>
-                    mas 1
+                    más 1
                 </button>
             </div>
 
