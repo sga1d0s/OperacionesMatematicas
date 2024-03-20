@@ -4,32 +4,88 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const [operation, setOperation] = useState([
+        {
+            name: 'suma',
+            operation: ( count +2)
+        },
+        {
+            name: 'resta',
+            operation: ( -2)
+        },
+        {
+            name: 'multiplica',
+            operation: (1*2)
+        },
+        {
+            name: 'divide',
+            operation: (1 /2)
+        },
+    ]);
+
+    // useEffect(() => {
+
+
+    //     operation.map((item, index) => {
+
+    //         const resultado
+
+    //     });
+
+    //     const result =
+
+    //     return () => {
+    //         second
+    //     }
+    // }, [count])
+
+
+    return (
+        <>
+
+            <h1>Operaciones mátemáticas</h1>
+            <div className="card">
+                <button onClick={() => setCount((count) => count + 1)}>
+                    más
+                </button>
+                <h1>
+                    {count}
+                </h1>
+                <button onClick={() => setCount((count) => count - 1)}>
+                    menos
+                </button>
+            </div>
+
+            <div className='container'>
+
+                {/*  Código JavaScript */}
+                {
+                    // Recorremos operations
+                    operation.map((item, index) => {
+
+                        return <div
+                            key={index}
+                            className={`card container-${index}`}
+                        >
+
+                            <div className='operation'>
+                                <h2>{item.name} dos</h2>
+
+                                <h2>{count}</h2>
+                                <h2>{count + item.operation}</h2>
+
+                            </div>
+
+
+                        </div>
+                    })
+                }
+            </div>
+
+        </>
+    )
 }
 
 export default App
