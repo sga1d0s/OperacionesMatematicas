@@ -4,26 +4,33 @@ import './App.css'
 function App() {
     const [count, setCount] = useState(0);
 
-    const [operation, setOperation] = useState([
+    const [values, setOperation] = useState([
         {
             name: 'suma',
             operation: "+",
+            color: 'lightgrey',
         },
         {
             name: 'resta',
             operation: "-",
+            color: 'lightblue',
+
         },
         {
             name: 'multiplica',
             operation: "*",
+            color: 'lightgreen',
+
         },
         {
             name: 'divide',
             operation: "/",
+            color: 'lightyellow',
+
         },
     ]);
 
-
+    
     return (
         <>
 
@@ -45,11 +52,13 @@ function App() {
                 {/*  Código JavaScript */}
                 {
                     // Recorremos operations
-                    operation.map((item, index) => {
+                    values.map((item, index) => {
 
                         return <div
                             key={index}
                             className={`card container-${index}`}
+                            style={{ backgroundColor: `${item.color}` }}
+
                         >
 
                             <div className='operation'>
