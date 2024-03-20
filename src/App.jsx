@@ -1,49 +1,72 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
     const [count, setCount] = useState(0);
+    const [color, setColor] = useState("");
 
-    const [values, setOperation] = useState([
+    const [values, setValues] = useState([
         {
-            name: 'suma',
+            name: '+',
             operation: "+",
             color: 'lightgrey',
         },
         {
-            name: 'resta',
+            name: '-',
             operation: "-",
             color: 'lightblue',
 
         },
         {
-            name: 'multiplica',
+            name: '*',
             operation: "*",
             color: 'lightgreen',
 
         },
         {
-            name: 'divide',
+            name: '/',
             operation: "/",
-            color: 'lightyellow',
+            color: 'lightpink',
 
         },
     ]);
 
-    
+    const boxClick = (index) => {
+        // Recibe el index del click en la caja y lo usa para setear el color
+        const color = values[index].color;
+        setColor(color);
+    };
+
+    useEffect(() => {
+        // Generamos el número aleatorio
+        const randomNumber = Math.floor(Math.random() * (3 - 0 + 1) + 0);
+        // Usamos el operador opcional para evitar errores si no hay un elemento en esa posición
+        const randomColor = values[randomNumber]?.color;
+        setColor(randomColor)
+
+        // return () => {
+        //     second
+        //   }
+    }, [count]);
+
+
     return (
         <>
-
             <h1>Operaciones mátemáticas</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    más
+            <div
+                className="count"
+                style={{ backgroundColor: `${color}` }}
+            >
+                <button
+                    onClick={() => setCount((count) => count - 1)}>
+                    menos 1
                 </button>
                 <h1>
                     {count}
                 </h1>
-                <button onClick={() => setCount((count) => count - 1)}>
-                    menos
+                <button
+                    onClick={() => setCount((count) => count + 1)}>
+                    mas 1
                 </button>
             </div>
 
@@ -51,19 +74,19 @@ function App() {
 
                 {/*  Código JavaScript */}
                 {
-                    // Recorremos operations
+                    // Recorremos values
                     values.map((item, index) => {
 
                         return <div
                             key={index}
-                            className={`card container-${index}`}
+                            className={`card card-${index}`}
                             style={{ backgroundColor: `${item.color}` }}
-
+                            // Mandamos el index de la caja a boxClick para indicarle la caja elegida
+                            onClick={() => boxClick(index)}
                         >
-
                             <div className='operation'>
-                                <h2>{item.name} dos</h2>
-
+                                <h2>{item.name} 2</h2>
+                                {/* Evaluamos el string como operación matemática */}
                                 <h2>{eval(`${count}` + `${item.operation}` + `2`)}</h2>
 
                             </div>
@@ -71,7 +94,6 @@ function App() {
                     })
                 }
             </div>
-
         </>
     )
 }

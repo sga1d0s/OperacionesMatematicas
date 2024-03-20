@@ -1,14 +1,21 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+.count{
+
+    display: flex;
+    padding: 3em;
+    border-radius: 3em;
+    justify-content: space-around;
+
+}
+
 .card{
-    padding: 2em;
-    margin: 2em;
-    min-width: 15%;
+    padding: 0.5em;
+    min-width: 20%;
     border-radius: 3em;
 }
 
@@ -16,4 +23,5 @@
     padding: 2em;
     margin: 2em;
     display: flex;
+    justify-content: space-between;
 }
