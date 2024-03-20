@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -9,37 +7,21 @@ function App() {
     const [operation, setOperation] = useState([
         {
             name: 'suma',
-            operation: ( count +2)
+            operation: "+",
         },
         {
             name: 'resta',
-            operation: ( -2)
+            operation: "-",
         },
         {
             name: 'multiplica',
-            operation: (1*2)
+            operation: "*",
         },
         {
             name: 'divide',
-            operation: (1 /2)
+            operation: "/",
         },
     ]);
-
-    // useEffect(() => {
-
-
-    //     operation.map((item, index) => {
-
-    //         const resultado
-
-    //     });
-
-    //     const result =
-
-    //     return () => {
-    //         second
-    //     }
-    // }, [count])
 
 
     return (
@@ -73,12 +55,9 @@ function App() {
                             <div className='operation'>
                                 <h2>{item.name} dos</h2>
 
-                                <h2>{count}</h2>
-                                <h2>{count + item.operation}</h2>
+                                <h2>{eval(`${count}` + `${item.operation}` + `2`)}</h2>
 
                             </div>
-
-
                         </div>
                     })
                 }
