@@ -80,7 +80,8 @@ function App() {
                         return <div
                             key={index}
                             className={`card card-${index}`}
-                            style={{ backgroundColor: `${item.color}` }}
+                            // No hace falta indicar con template literals porque la variable está dentro del map
+                            style={{ backgroundColor: item.color }}
                             // Mandamos el index de la caja a boxClick para indicarle la caja elegida
                             onClick={() => boxClick(index)}
                         >
